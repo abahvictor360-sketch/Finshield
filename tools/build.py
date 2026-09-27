@@ -91,14 +91,14 @@ def footer():
       </div>
       <div class="footer-bottom">
         <span>© <span id="year">2024</span> Finshield</span>
-        <span>All Rights Reserved</span>
+        <span>Concept project · Not a real financial service</span>
         <span class="legal"><a href="terms.html">Terms of Service</a><a href="privacy.html">Privacy Policy</a></span>
       </div>
     </div>
   </footer>"""
 
 
-def render(page):
+def render(filename, page):
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -106,6 +106,17 @@ def render(page):
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{page["title"]} — Finshield</title>
   <meta name="description" content="{page["description"]}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Finshield" />
+  <meta property="og:title" content="{page["title"]} — Finshield" />
+  <meta property="og:description" content="{page["description"]}" />
+  <meta property="og:url" content="https://finshield-alpha.vercel.app/{filename[:-5]}" />
+  <meta property="og:image" content="https://finshield-alpha.vercel.app/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://finshield-alpha.vercel.app/assets/og-image.png" />
+  <meta name="theme-color" content="#000000" />
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -134,7 +145,7 @@ def render(page):
 
 def main():
     for filename, page in PAGES.items():
-        (ROOT / filename).write_text(render(page))
+        (ROOT / filename).write_text(render(filename, page))
         print("wrote", filename)
 
 
