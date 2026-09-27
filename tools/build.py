@@ -126,6 +126,7 @@ def render(page):
   {footer()}
 
   <script src="script.js"></script>
+  <script src="motion.js"></script>
 </body>
 </html>
 """

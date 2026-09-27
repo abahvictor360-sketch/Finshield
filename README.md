@@ -36,6 +36,11 @@ python3 tools/build.py
 ```
 
 - `styles.css` holds all styles, with breakpoints at 1000px and 760px.
+- `motion.js` handles animation: word-by-word headings, staggered scroll reveals, parallax, sticky nav, scroll progress bar, magnetic buttons and the footer wordmark. It turns itself off when the visitor's device is set to reduce motion.
 - `script.js` handles the interactions: nav, accordions, sliders, count-ups, form validation, filters, pricing toggle, dialogs, help search and cookie preferences.
 
 Forms are front-end only. They validate input and show a confirmation, but they don't send data anywhere yet.
+
+## Deploy
+
+The site deploys to Vercel as a static site with no build step. `vercel.json` enables clean URLs (for example `/products`).
